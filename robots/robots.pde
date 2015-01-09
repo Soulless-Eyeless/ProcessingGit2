@@ -1,13 +1,31 @@
+Robot roberto, ruth, rupert, roberta, ross;
+
 void setup() {
   size(800, 700);
-//  background(255,0,150);
-   background(#FB8FB8);
 
-  translate(width/2,height/2);
-  fill(#4AA02C);
-  int wHead = 220; //width of head
-  int hHead = wHead * 2/3; //height of head
-  int rHead = wHead/5; //radius of head
-  rectMode(CENTER);
-  rect(0,0,wHead,hHead, rHead);
+  roberto = new Robot(220);
+  ruth = new Robot (110);
+  rupert = new Robot (55);
+  roberta = new Robot (22.5);
+  ross = new Robot (11.25);
 }
+
+void draw() {
+  background(#FB8FB8);
+
+  roberto.drawRobot();
+  roberto.easeTowards(mouseX, mouseY);
+
+  ruth.drawRobot();
+  ruth.easeTowards(roberto.x, roberto.y);
+  
+  rupert.drawRobot();
+  rupert.easeTowards(ruth.x,ruth.y);
+  
+  roberta.drawRobot();
+  roberta.easeTowards(rupert.x,rupert.y);
+  
+  ross.drawRobot();
+  ross.easeTowards(roberta.x,roberta.y);
+}
+
